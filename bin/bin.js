@@ -8,11 +8,15 @@ if (!word) {
     console.log('使用方式：c <word>')
     process.exit()
 }
-
-const target = 'https://test-1257187612.cos.ap-shanghai.myqcloud.com/data.json'
+//常量
+const serves = {
+    dict: 'http://dict.youdao.com/w/',
+    book: 'https://test-1257187612.cos.ap-shanghai.myqcloud.com/data.json',
+    push: 'https://api.day.app/NmAByzvdmM8EfTtNsYMGEo/'
+}
 
 async function handleCheck() {
-    const result = await requestTarget(target)
+    const result = await requestTarget(serves.dict)
     console.log(result)
 }
 
