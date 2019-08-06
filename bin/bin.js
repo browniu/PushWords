@@ -8,6 +8,7 @@ if (!word) {
     console.log('使用方式：c <word>')
     process.exit()
 }
+
 //常量
 const serves = {
     dict: 'http://dict.youdao.com/w/',
