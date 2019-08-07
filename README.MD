@@ -40,7 +40,7 @@ module element subassembly
 
 ## 记录
 
-### STEP 1	
+### STEP 1 本地存储
 
 `PushWords` 会自动将查询过的有效值按照一下格式存储为`JSON`文件：
 
@@ -69,7 +69,7 @@ module element subassembly
 ]
 ```
 
-### STEP 2
+### STEP 2 云端同步
 
 `PushWords` 自动将`JSON`文件同步到腾讯云**对象存储**之中，通过这种方式来代替数据库存储和分发服务器的部署，优点是简单、安全、百万请求数以下完全免费。对象存储的相关密匙需要自行申请配置。
 
