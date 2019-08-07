@@ -110,7 +110,7 @@ module element subassembly
 if (now - item.date >= during) {push(content)}
 ```
 
-`PushWords`  通过将复习的时间戳存入`review`属性来获取复习的总次数，每成功推送一次，就讲推送的时间戳存入`review`数组
+`PushWords`  通过将复习的时间戳存入`review`属性来获取复习的总次数，每成功推送一次，就将推送的时间戳存入`review`数组
 
 ```javascript
    "review": [
