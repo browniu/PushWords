@@ -111,4 +111,4 @@ async function recordCloud(record) {
     });
 }
 
-// run();
+run();
