@@ -33,19 +33,19 @@ async function handleCheck() {
 
     if (isCh) {
         $('div.trans-container > ul').find('p.wordGroup').each(function () {
-            result += $(this).children('span.contentTitle').text().replace(/\s+/g, '').substr(0, 50)
+            result += $(this).children('span.contentTitle').text().replace(/\s+/g, '').substr(0, 50) + ' '
         })
-        result = result.replace(/;/g, ' ')
+        result = result.replace(/;/g, ' ').replace(/\s*$/g, '')
         if (result) console.log(chalk.green(result))
     } else {
         $('div#phrsListTab > div.trans-container > ul').find('li').each(function () {
             result += $(this).text().replace(/\s+/g, '').substr(0, 30) + ' '
         })
-        result = result.replace(/；/g, ';')
+        result = result.replace(/；/g, ';').replace(/\s*$/g, '')
         if (result) console.log(chalk.blue(result))
     }
     if (!result) console.log(chalk.red('查询无果'))
-    else record({word: word, result: result, date: new Date().getTime()}, dataPath)
+    else recordAdd({word: word, result: result, date: new Date().getTime(), review: []}, dataPath)
 }
 
 // 发送请求
@@ -58,7 +58,7 @@ function requestTarget(target) {
 }
 
 // 记录
-async function record(item, path) {
+async function recordAdd(item, path) {
     let list = await readJSON(path)
     list.push(item)
     await fs.writeFile(path, JSON.stringify(list), (err) => {if (err) throw (err)})
@@ -78,6 +78,7 @@ function readJSON(path) {
 // 上传记录
 async function recordCloud(record) {
     const key = await readJSON('./key.json')
+
     const cos = new COS({
         SecretId: key.SecretId,
         SecretKey: key.SecretKey
