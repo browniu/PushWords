@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 // 依赖组件
-const processC = require('child_process');
 const request = require('request')
 const urlencode = require('urlencode')
 const cheerio = require('cheerio')
 const isChinese = require('is-chinese')
 const chalk = require('chalk');
 const fs = require('fs')
+const COS = require('cos-nodejs-sdk-v5');
 // 指令处理
 const word = process.argv.slice(2).join(' ')
 if (!word) {
@@ -59,13 +59,14 @@ function requestTarget(target) {
 
 // 记录
 async function record(item, path) {
-    let list = await recordRead(path)
+    let list = await readJSON(path)
     list.push(item)
-    fs.writeFile(path, JSON.stringify(list), (err) => {if (err) throw (err)})
+    await fs.writeFile(path, JSON.stringify(list), (err) => {if (err) throw (err)})
+    recordCloud(path)
 }
 
-// 读取记录
-function recordRead(path) {
+// 读取数据
+function readJSON(path) {
     return new Promise(resolve => {
         fs.readFile(path, 'utf-8', (err, data) => {
             if (err) throw (err)
@@ -75,8 +76,20 @@ function recordRead(path) {
 }
 
 // 上传记录
-function recordCloud(record) {
+async function recordCloud(record) {
+    const key = await readJSON('./key.json')
+    const cos = new COS({
+        SecretId: key.SecretId,
+        SecretKey: key.SecretKey
+    });
 
+    cos.putObject({
+        Bucket: key.Bucket,
+        Region: 'ap-shanghai',
+        Key: 'pushwords.json',
+        StorageClass: 'STANDARD',
+        Body: fs.createReadStream(record),
+    }, (err) => {if (err) throw (err)});
 }
 
 handleCheck()

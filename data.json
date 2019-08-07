@@ -1,17 +1,1 @@
-[
-  {
-    "word": "hello",
-    "result": "int.喂;哈罗 n.表示问候，惊奇或唤起注意时的用语 n.(Hello)人名;(法)埃洛 ",
-    "date": 1565149458931
-  },
-  {
-    "word": "组件",
-    "result": "module element subassembly",
-    "date": 1565149525330
-  },
-  {
-    "word": "请求",
-    "result": "requestbeg demandask",
-    "date": 1565157721312
-  }
-]
+[{"word":"hello","result":"int.喂;哈罗 n.表示问候，惊奇或唤起注意时的用语 n.(Hello)人名;(法)埃洛 ","date":1565149458931},{"word":"组件","result":"module element subassembly","date":1565149525330},{"word":"请求","result":"requestbeg demandask","date":1565157721312},{"word":"请求","result":"requestbeg demandask","date":1565158920913},{"word":"请求","result":"requestbeg demandask","date":1565158941829},{"word":"luola","result":"n.(Luola)人名;(芬)卢奥拉 ","date":1565158993721},{"word":"club","result":"n.俱乐部，社团;夜总会;棍棒;（扑克牌中的）梅花 vt.用棍棒打;募集 vi.集资;组成俱乐部 adj.俱乐部的 n.(Club)(巴、印、阿)克拉布（人名） ","date":1565159438667},{"word":"GMT","result":"abbr.格林威治标准时间（GreenwichMeanTim ","date":1565159571307},{"word":"模仿","result":"imitationimitate simulate","date":1565159641284}]
