@@ -1,7 +1,17 @@
 [
   {
-    "word": "傻瓜",
-    "result": "fool simpleton blockhead flathead asshead",
-    "date": 1565148992355
+    "word": "hello",
+    "result": "int.喂;哈罗 n.表示问候，惊奇或唤起注意时的用语 n.(Hello)人名;(法)埃洛 ",
+    "date": 1565149458931
+  },
+  {
+    "word": "组件",
+    "result": "module element subassembly",
+    "date": 1565149525330
+  },
+  {
+    "word": "请求",
+    "result": "requestbeg demandask",
+    "date": 1565157721312
   }
 ]
