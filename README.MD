@@ -137,3 +137,9 @@ request(serves.push + urlencode(content), (error) => {if(err)throw(error)})
 
 * [腾讯云](https://cloud.tencent.com)
 * [Bark](https://github.com/Finb/Bark)
+
+## 更新日志
+### 0.0.2 20190807
+* 增加查重机制
+### 0.0.1 
+* 发布测试版

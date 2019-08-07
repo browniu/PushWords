@@ -1,6 +1,6 @@
 {
   "name": "pushwords",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "custom push words in wordbook",
   "main": "index.js",
   "repository": "https://github.com/browniu/PushWords.git",
@@ -14,7 +14,6 @@
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.3",
     "cli-spinner": "^0.2.10",
-    "commander": "^2.20.0",
     "cos-nodejs-sdk-v5": "^2.5.9",
     "is-chinese": "^1.2.9",
     "request": "^2.88.0",
