@@ -21,8 +21,7 @@ exports.run = async () => {
         console.log(during, now - item.date)
         if (now - item.date >= during) {
             item.review.push(now);
-            console.log(item)
-            push(item);
+            await push(item);
             await recordCloud(list);
             return {item: item, date: new Date()}
         }
@@ -59,10 +58,12 @@ function abhs(x) {
 
 // 推送
 function push(item) {
-    let content = item.word + '\n' + item.result;
-    request(serves.push + urlencode(content), (error) => {
-        if (error) throw (error);
-        else console.log('推送成功:', item.word, ' ' + new Date())
+    return new Promise(resolve => {
+        let content = item.word + '\n' + item.result;
+        request(serves.push + urlencode(content), (error) => {
+            if (error) throw (error);
+            resolve(console.log('推送成功:', item.word, ' ' + new Date()))
+        })
     })
 }
 

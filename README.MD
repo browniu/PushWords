@@ -129,13 +129,17 @@ request(serves.push + urlencode(content), (error) => {if(err)throw(error)})
 
 ### STEP 3 云函数部署	
 
-通过云函数实现无服务器部署定时查询复习进度的远程服务。
+通过云函数实现无服务器部署定时查询复习进度的远程服务。将整个项目包压缩上传，按照文档配置执行方法即可
+
+```javascript
+index.run
+```
 
 > [腾讯云函数SDK](https://cloud.tencent.com/product/scf/getting-started)
 
 ### STEP 4  清空
 
-通过键入特殊关键词`CLEAR`可以快速清空已经完全掌握的条目
+通过键入特殊关键词`CLEAR`可以快速清空已经完全掌握的条目。
 
 ```bash
 c CLEAR
