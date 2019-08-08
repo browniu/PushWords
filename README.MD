@@ -2,6 +2,8 @@
 
 > 命令行词典，查询可自动同步入单词本，并根据艾宾浩斯曲线定时推送复习
 
+[![NPM](https://img.shields.io/npm/v/pushwords.svg)](https://www.npmjs.com/package/pushwords) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 ## 安装
 
 ```bash
