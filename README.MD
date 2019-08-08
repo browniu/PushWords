@@ -133,13 +133,30 @@ request(serves.push + urlencode(content), (error) => {if(err)throw(error)})
 
 > [腾讯云函数SDK](https://cloud.tencent.com/product/scf/getting-started)
 
+### STEP 4  清空
+
+通过键入特殊关键词`CLEAR`可以快速清空已经完全掌握的条目
+
+```bash
+c CLEAR
+```
+
+
+
 ## 相关技术
 
 * [腾讯云](https://cloud.tencent.com)
 * [Bark](https://github.com/Finb/Bark)
 
+
+
 ## 更新日志
+
+### 0.0.3 20190808
+
+* 部署云函数无服务器版
+
 ### 0.0.2 20190807
 * 增加查重机制
 ### 0.0.1 
-* 发布测试版
+* 发布服务器测试版
