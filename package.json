@@ -1,6 +1,6 @@
 {
   "name": "pushwords",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "custom push words in wordbook",
   "main": "index.js",
   "repository": "https://github.com/browniu/PushWords.git",

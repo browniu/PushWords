@@ -85,8 +85,12 @@ function readJSON(path) {
 
 // 上传记录
 async function recordCloud(record) {
-    const key = await readJSON('./key.json');
-
+    // const key = await readJSON('./key.json');
+    const key = {
+        SecretId: 'AKIDGNK6iAo7I1BA4un7byFRTPQJ2Z3MYUL7',
+        SecretKey: 'lfOzRiyHVYXFtPkyDKLCtPnMm8IsIXou',
+        Bucket: 'test-1257187612'
+    }
     const cos = new COS({
         SecretId: key.SecretId,
         SecretKey: key.SecretKey
