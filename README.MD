@@ -2,6 +2,8 @@
 
 > 命令行词典，查询可自动同步入单词本，并根据艾宾浩斯曲线定时推送复习
 
+[![NPM](https://img.shields.io/npm/v/pushwords.svg)](https://www.npmjs.com/package/pushwords) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 ## 安装
 
 ```bash
@@ -44,7 +46,7 @@ module element subassembly
 
 `PushWords` 会自动将查询过的有效值按照以下数据结构存储为`JSON`文件：
 
-每次记录前会对查询值进行查重，如果出现重复，则清空该数据的`review`属性，以获得在之后复习算法中更高的权重。
+每次记录前会请求云端（对象存储）数据对查询值进行查重，如果出现重复，则清空该数据的`review`属性，以获得在之后复习算法中更高的权重。
 
 ```json
 [
@@ -71,7 +73,7 @@ module element subassembly
 
 ### STEP 2 云端同步
 
-`PushWords` 自动将`JSON`文件同步到腾讯云**对象存储**之中，通过这种方式来代替数据库存储和分发服务器的部署，优点是简单、安全、百万请求数以下完全免费。对象存储的相关密匙需要自行申请配置。
+`PushWords` 自动将`JSON`文件同步到腾讯云**对象存储**之中，通过这种方式来代替数据库存储和分发服务器的部署，优点是简单、安全、完全免费。对象存储的相关密匙需要自行申请配置。
 
 ```javascript
     const cos = new COS({
@@ -129,17 +131,38 @@ request(serves.push + urlencode(content), (error) => {if(err)throw(error)})
 
 ### STEP 3 云函数部署	
 
-通过云函数实现无服务器部署定时查询复习进度的远程服务。
+通过云函数实现无服务器部署定时查询复习进度的远程服务。将整个项目包压缩上传，按照文档配置执行方法即可
+
+```javascript
+index.run
+```
 
 > [腾讯云函数SDK](https://cloud.tencent.com/product/scf/getting-started)
+
+### STEP 4  清空
+
+通过键入特殊关键词`CLEAR`可以快速清空已经完全掌握的条目。
+
+```bash
+c CLEAR
+```
+
+
 
 ## 相关技术
 
 * [腾讯云](https://cloud.tencent.com)
 * [Bark](https://github.com/Finb/Bark)
 
+
+
 ## 更新日志
+
+### 0.0.3 20190808
+
+* 部署云函数无服务器版
+
 ### 0.0.2 20190807
 * 增加查重机制
 ### 0.0.1 
-* 发布测试版
+* 发布服务器测试版

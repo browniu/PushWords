@@ -19,13 +19,15 @@ const isCh = isChinese(word);
 const serves = {
     dict: 'http://dict.youdao.com/w/',
     dictCh: 'https://dict.youdao.com/w/eng/',
-    book: 'https://test-1257187612.cos.ap-shanghai.myqcloud.com/data.json',
+    book: 'https://test-1257187612.cos.ap-shanghai.myqcloud.com/pushwords.json',
     push: 'https://api.day.app/NmAByzvdmM8EfTtNsYMGEo/'
 };
 const dataPath = './data.json';
 
 // 数据解析
 async function handleCheck() {
+
+    if (word === 'CLEAR') await clear()
 
     const body = await requestTarget((isCh ? serves.dictCh : serves.dict) + urlencode(word));
     const $ = cheerio.load(body);
@@ -59,14 +61,16 @@ function requestTarget(target) {
 
 // 记录
 async function recordAdd(item, path) {
-    let list = await readJSON(path);
+    let list = await requestTarget(serves.book);
+    list = JSON.parse(list);
+
     let repeatIndex = await repetition(item, list);
     if (repeatIndex) list[repeatIndex].review = [];
     else list.push(item);
     await fs.writeFile(path, JSON.stringify(list), (err) => {
         if (err) throw (err)
     });
-    recordCloud(path)
+    await recordCloud(path)
 }
 
 // 读取数据
@@ -81,8 +85,12 @@ function readJSON(path) {
 
 // 上传记录
 async function recordCloud(record) {
-    const key = await readJSON('./key.json');
-
+    // const key = await readJSON('./key.json');
+    const key = {
+        SecretId: 'AKIDGNK6iAo7I1BA4un7byFRTPQJ2Z3MYUL7',
+        SecretKey: 'lfOzRiyHVYXFtPkyDKLCtPnMm8IsIXou',
+        Bucket: 'test-1257187612'
+    }
     const cos = new COS({
         SecretId: key.SecretId,
         SecretKey: key.SecretKey
@@ -108,6 +116,28 @@ async function repetition(item, list) {
         }
         resolve(null)
     })
+}
+
+// 清空
+async function clear() {
+
+    const key = await readJSON('./key.json');
+
+    const cos = new COS({
+        SecretId: key.SecretId,
+        SecretKey: key.SecretKey
+    });
+
+    cos.putObject({
+        Bucket: 'test-1257187612',
+        Region: 'ap-shanghai',
+        Key: 'pushwords.json',
+        Body: JSON.stringify([]),
+    }, (err) => {
+        if (err) throw (err)
+        console.log(chalk.cyan('清空数据库成功'))
+        process.exit()
+    });
 }
 
 handleCheck();

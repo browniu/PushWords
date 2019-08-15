@@ -11,22 +11,23 @@ const serves = {
 const dataPath = './data.json';
 const now = new Date().getTime();
 
-async function run() {
+exports.run = async () => {
     let list = await requestTarget(serves.book);
     list = JSON.parse(list);
 
     for (let i = 0; i < list.length; i++) {
         const item = list[i];
         const during = abhs(item.review.length);
+        console.log(during, now - item.date)
         if (now - item.date >= during) {
             item.review.push(now);
-            push(item);
-            await record(list, dataPath);
-            await recordCloud(dataPath);
-            return
+            await push(item);
+            await recordCloud(list);
+            return {item: item, date: new Date()}
         }
     }
     console.log('没有可复习的内容')
+    return {info: 'pass'}
 }
 
 // 艾宾浩斯
@@ -57,10 +58,12 @@ function abhs(x) {
 
 // 推送
 function push(item) {
-    let content = item.word + '\n' + item.result;
-    request(serves.push + urlencode(content), (error) => {
-        if (error) throw (error);
-        else console.log('推送成功:', item.word, ' ' + new Date())
+    return new Promise(resolve => {
+        let content = item.word + '\n' + item.result;
+        request(serves.push + urlencode(content), (error) => {
+            if (error) throw (error);
+            resolve(console.log('推送成功:', item.word, ' ' + new Date()))
+        })
     })
 }
 
@@ -71,14 +74,6 @@ function requestTarget(target) {
             resolve(response.body)
         })
     })
-}
-
-// 记录
-async function record(item, path) {
-    await fs.writeFile(path, JSON.stringify(item), (err) => {
-        if (err) throw (err)
-    });
-    recordCloud(path)
 }
 
 // 读取数据
@@ -94,21 +89,18 @@ function readJSON(path) {
 // 上传记录
 async function recordCloud(record) {
     const key = await readJSON('./key.json');
-
     const cos = new COS({
-        SecretId: key.SecretId,
+        SecretId: key.sSecretId,
         SecretKey: key.SecretKey
     });
 
     cos.putObject({
-        Bucket: key.Bucket,
+        Bucket: 'test-1257187612',
         Region: 'ap-shanghai',
         Key: 'pushwords.json',
-        StorageClass: 'STANDARD',
-        Body: fs.createReadStream(record),
+        Body: JSON.stringify(record),
     }, (err) => {
         if (err) throw (err)
     });
 }
 
-run();

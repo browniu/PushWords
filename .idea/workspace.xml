@@ -12,7 +12,37 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/bin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#347#403#0" />
+                <element signature="n#!!block;n#requestTarget#0" />
+                <element signature="n#!!block;n#readJSON#0" />
+                <element signature="n#!!block;n#repetition#0" />
+                <element signature="n#!!block;n#clear#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> 82ff43fd47b6fb5594798733490b797dc469466c
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -21,6 +51,8 @@
       <find>讲</find>
       <find>item</find>
       <find>readJSON</find>
+      <find>recordCloud</find>
+      <find>key</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -30,12 +62,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/key.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/data.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/README.MD" />
         <option value="$PROJECT_DIR$/bin/bin.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/README.MD" />
-        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -45,11 +77,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="268" />
-    <option name="y" value="165" />
-    <option name="width" value="1410" />
-    <option name="height" value="1166" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -75,7 +105,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -120,29 +150,39 @@
       <option name="presentableId" value="Default" />
       <updated>1565078708982</updated>
       <workItem from="1565078711149" duration="25358000" />
+<<<<<<< HEAD
       <workItem from="1565184940394" duration="3925000" />
+=======
+      <workItem from="1565184940394" duration="3691000" />
+      <workItem from="1565665052733" duration="2480000" />
+>>>>>>> 82ff43fd47b6fb5594798733490b797dc469466c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="29283000" />
+=======
+    <option name="totallyTimeSpent" value="38389000" />
+>>>>>>> 82ff43fd47b6fb5594798733490b797dc469466c
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533757" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24812919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32913166" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32865584" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3837535" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.27548006" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -156,77 +196,67 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/key.json">
+    <entry file="file://$PROJECT_DIR$/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        <state>
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="e#160#300#0" />
+            <element signature="n#!!block;n#abhs#0" />
+            <element signature="n#!!block;n#requestTarget#0" />
+            <element signature="n#!!block;n#readJSON#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.MD">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="169">
-            <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+          <first_editor relative-caret-position="-150">
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/key.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="63">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/bin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
+        <state relative-caret-position="252">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#341#396#0" />
-            <element signature="e#447#667#0" />
-            <element signature="n#!!block;n#handleCheck#0" />
-            <element signature="e#901#1220#0" />
-            <element signature="e#978#1096#0" />
-            <element signature="e#1226#1523#0" />
-            <element signature="e#1312#1400#0" />
+            <element signature="e#347#403#0" />
             <element signature="n#!!block;n#requestTarget#0" />
-            <element signature="e#1749#1849#0" />
-            <element signature="e#1796#1842#0" />
-            <element signature="n#!!block;n#recordAdd#0" />
-            <element signature="e#2035#2071#0" />
             <element signature="n#!!block;n#readJSON#0" />
-            <element signature="e#2132#2273#0" />
-            <element signature="e#2184#2266#0" />
-            <element signature="n#!!block;n#recordCloud#0" />
-            <element signature="e#2393#2465#0" />
-            <element signature="e#2487#2661#0" />
-            <element signature="e#2709#2745#0" />
-            <element signature="n#!!block;n#f#0" />
-            <element signature="e#2903#2919#0" />
-            <element signature="e#3108#3132#0" />
+            <element signature="n#!!block;n#repetition#0" />
+            <element signature="n#!!block;n#clear#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.json">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="263">
           <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
           <folding>
@@ -237,6 +267,10 @@
             <element signature="n#!!block;n#readJSON#0" />
             <element signature="n#!!block;n#recordCloud#0" />
           </folding>
+=======
+        <state relative-caret-position="42">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+>>>>>>> 82ff43fd47b6fb5594798733490b797dc469466c
         </state>
       </provider>
     </entry>
