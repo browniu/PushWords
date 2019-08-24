@@ -11,6 +11,7 @@ const COS = require('cos-nodejs-sdk-v5');
 const word = process.argv.slice(2).join(' ');
 if (!word) {
     console.log('使用方式：c <word>');
+    console.log(require('../package').version);
     process.exit()
 }
 const isCh = isChinese(word);
@@ -27,7 +28,7 @@ const dataPath = './data.json';
 // 数据解析
 async function handleCheck() {
 
-    if (word === 'CLEAR') await clear()
+    if (word === 'CLEAR') await clear();
 
     const body = await requestTarget((isCh ? serves.dictCh : serves.dict) + urlencode(word));
     const $ = cheerio.load(body);
@@ -47,7 +48,7 @@ async function handleCheck() {
         if (result) console.log(chalk.blue(result))
     }
     if (!result) console.log(chalk.red('查询无果'));
-    else await recordAdd({word: word, result: result, date: new Date().getTime(), review: []}, dataPath)
+    else await recordAdd({word: word, result: result, date: new Date().getTime(), review: []})
 }
 
 // 发送请求
@@ -60,17 +61,15 @@ function requestTarget(target) {
 }
 
 // 记录
-async function recordAdd(item, path) {
+async function recordAdd(item) {
     let list = await requestTarget(serves.book);
-    list = JSON.parse(list);
-
+    list = list ? JSON.parse(list) : [];
+    //查重
     let repeatIndex = await repetition(item, list);
     if (repeatIndex) list[repeatIndex].review = [];
     else list.push(item);
-    await fs.writeFile(path, JSON.stringify(list), (err) => {
-        if (err) throw (err)
-    });
-    await recordCloud(path)
+    // 云端写入
+    await recordCloud(list)
 }
 
 // 读取数据
@@ -78,6 +77,7 @@ function readJSON(path) {
     return new Promise(resolve => {
         fs.readFile(path, 'utf-8', (err, data) => {
             if (err) throw (err);
+            console.log(data);
             resolve(JSON.parse(data))
         })
     })
@@ -85,12 +85,11 @@ function readJSON(path) {
 
 // 上传记录
 async function recordCloud(record) {
-    // const key = await readJSON('./key.json');
     const key = {
         SecretId: 'AKIDGNK6iAo7I1BA4un7byFRTPQJ2Z3MYUL7',
         SecretKey: 'lfOzRiyHVYXFtPkyDKLCtPnMm8IsIXou',
         Bucket: 'test-1257187612'
-    }
+    };
     const cos = new COS({
         SecretId: key.SecretId,
         SecretKey: key.SecretKey
@@ -101,7 +100,7 @@ async function recordCloud(record) {
         Region: 'ap-shanghai',
         Key: 'pushwords.json',
         StorageClass: 'STANDARD',
-        Body: fs.createReadStream(record),
+        Body: JSON.stringify(record),
     }, (err) => {
         if (err) throw (err)
     });
